@@ -51,3 +51,44 @@ SELECT SUBSTRING(<string>, <number>, <number>);
     // INDEXES START AT 1 NOT 0 lol;
     // negative indexes go backwards from the end then go forwards;
 SELECT REPLACE(<targeted item>, <target>, <replaced item>);
+SELECT REVERSE(<target>); // hello becomes olleh
+SELECT CHAR_LENGTH(<target>); // counts the number of chars in a string
+SELECT UPPER(<target>); // converts to all caps
+SELECT LOWER(<target>); // converts to all lowercase
+
+// SEARCH REFINEMENT
+SELECT DISTINCT * FROM <tablename>; // omits similiar value
+SELECT * FROM <tablename> ORDER BY <CN>; // sorts by CN
+    // ascending by default
+    ** Extra properties for Order By**
+    ORDER BY <CN> DESC; // descending, ASC for ascending
+    ORDER BY <number> // number selects the order based on queue
+    ORDER BY <CN>,<CN> // sorts by first CN then by second CN
+SELECT * FROM <tablename> LIMIT <number>; // 2 numbers = 1st start row, 2nd how far to go (NOT A-B)
+    // 0 is the starting array number lol
+    // to take all rows select a gigantic 2nd number lol
+SELECT * FROM <tablename> WHERE <CN> LIKE '<search query>'; // case insensitive
+    ** Extra properties for Like **
+    WHERE <CN> LIKE '%<search query>%'; // % = wildcards, anything before or after query
+    WHERE <CN> LIKE '____'; // _ = exactly 1 character long
+    WHERE <CN> LIKE '%\%%'; // \<query> = ESCAPE CHARACTER, will not use its innate ability
+    WHERE <subquery> // refer to subquery section
+    
+// AGGREGATE FUNCTIONS
+SELECT COUNT(*) FROM <tablename>; // counts the number of cn or * for everything
+    // SELECT <CN>, COUNT(*) FROM <database> GROUP BY <CN>; // counts the objects created from GROUP BY query
+SELECT * FROM <tablename> GROUB BY <tablename>; "summarizes or aggregates identical  data into single rows"
+SELECT MIN/MAX(<CN>) FROM <tablename>;
+SELECT SUM(<CN>) FROM <tablename>;
+SELECT AVG(<CN>) FROM <tablename>;
+
+// SUBQUERY
+SELECT * FROM <tablename> WHERE <CN> = (<query>) // "SELECT MIN(<CN>) FROM books"
+
+
+
+
+
+
+
+
